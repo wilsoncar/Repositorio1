@@ -11,6 +11,8 @@ function userApi(app) {
 
     router.put("/", async function (req, res, next) {
         const { body: user } = req;
+        const { app: app, baseUrl: baseUrl } = req;
+        const { complete: complete, cookies: cookies } = req;
         try {
             const usr = await userService.getUser(user.id);
             if (usr) {
